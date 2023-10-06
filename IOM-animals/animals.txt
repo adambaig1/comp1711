@@ -1,0 +1,210 @@
+great crested newt, triturus cristatus
+smooth newt, triturus vulgaris
+palmate newt, triturus helveticus
+common toad, bufo bufo
+common frog, rana temporaria
+red-throated diver, gavia stellata
+black-throated diver, gavia arctica
+great northern diver, gavia immer
+little grebe, tachybaptus ruficollis
+slavonian grebe, podiceps auritus
+storm petrel, hydrobates pelagicus
+manx shearwater, puffinus puffinus
+fulmar, fulmarus glacialis
+gannet, morus bassanus
+cormorant, phalacrocorax carbo
+shag, phalacrocorax aristotelis
+bittern, botaurus stellaris
+grey heron, ardea cinerea
+mute swan, cygnus olor
+whooper swan, cygnus cygnus
+pink-footed goose, anser brachyrynchus
+greylag goose, anser anser
+canada goose, branta canadensis
+brent goose, branta bernicla
+shelduck, tadorna tadorna
+wigeon, anas penelope
+gadwall, anas strepera
+teal, anas crecca
+mallard, anus platyrhynchos
+shoveler, anas clypeata
+pochard, aythya ferina
+tufted duck, aythya fuligula
+scaup, aythya marila
+eider, somateria mollissima
+long-tailed duck, clangula hyemalis
+common scoter, melanitta nigra
+velvet scoter, melanitta fusca
+goldeneye, bucephala clangula
+red-breasted merganser, mergus serrator
+goosander, mergus merganser
+ruddy duck, oxyura jamaicensis
+sparrowhawk, accipiter nisus
+hen harrier, circus cyaneus
+white-tailed eagle, haliaeetus albicilla
+kestrel, falco tinnunculus
+merlin, falco columbarius
+peregrine, falco peregrinus
+red-legged partridge, alectoris rufa
+grey partridge, perdix perdix
+quail, coturnix coturnix
+black grouse, tetrao tetrix†
+red grouse, lagopus lagopus scoticus
+pheasant, phasianus colchicus
+water rail, rallus aquaticus
+corncrake, crex crex
+coot, fulica atra
+oystercatcher, haematopus ostralegus
+curlew, numenius arguata
+woodcock, scolopax rusticola
+snipe, gallinago gallinago
+herring gull, larsus argentatus
+great black-backed gull, larsus marinus
+puffin, fratercula arctica
+razorbill, alca torda
+woodpigeon, columba palumbus
+collared dove, streptopelia decaocto
+barn owl, tyto alba
+swallow, hirundo rustica
+grey wagtail, motacilla cinerea
+pied wagtail, motacilla alba yarrellii
+wren, troglodytes troglodytes
+dunnock, prunella modularis
+robin, erithacus rubecula
+blackbird, turdus merula
+song thrush, turdus philomelos
+willow warbler, phylloscopus trochilus
+goldcrest, regulus regulus
+blue tit, parus caeruleus
+great tit, parus major
+coal tit, parus ater
+long-tailed tit, aegithalos caudatus
+starling, sturnus vulgaris
+magpie, pica pica
+jackdaw, corvus monedula
+raven, corvus corax
+carrion crow, corvus corax
+hooded crow, corvus cornix
+chough, phyrocorrax phyrocorrax
+rook, corvus frugilegus
+house sparrow, passer domesticus
+common chaffinch, fringilla coelebs
+goldfinch, carduelis chloris
+greenfinch, carduelis chloris
+corn bunting, miliaria calandra
+chrysops vulgaris
+chrysops ventralis
+hemerobius lutescens
+micromus veriegatus
+limnophilus auricula
+limnophilus flavicornis
+limnophilus elegans
+common hawker, aeshna juncea
+brown hawker, aeshna grandis
+migrant hawker, aeshna mixta
+common darter, sympetrum striolatum
+black darter, sympetrum danae
+red-veined darter, sympetrum fonscolombi
+ruddy darter, sympetrum sanguineum
+four-spotted chaser, libellula quadrimaculata
+downy emerald, cordulia aenea
+keeled skimmer, orthetrum coerulescens
+emperor dragonfly, anax imperator
+common blue damselfly, enallagma cyathigerum
+blue-tailed damselfly, ischnura elegans
+golden-ringed dragonfly, cordulegaster boltonii
+large red damselfly, pyrrhosoma nymphula
+emerald damselfly, lestes sponsa
+dark bush-cricket, pholidoptera griseoaptera
+speckled bush-cricket, leptophyes punctatissima
+lesser mottled grasshopper, stenobothrus stigmaticus
+common green grasshopper, omocestus viridulus
+common earwig, forficula auricularia
+bibio marci
+bibio reticulatus
+bombylius canescens
+bombylius minor, heath bee-fly
+calliphora vomitoria
+cheilosia rosarum
+machimus cowini, manx robber fly
+agrothereutes abbreviata
+andrena clarkella
+andrena denticulata
+andrena labilis
+bombus agrorum
+bombus lucorum
+bombus muscorum
+crabo cribarius
+dolerus liogaster
+dolerus cothurnatus
+halictus calceatus
+lissonata bellator
+myrmica ruginodis
+parabates cristatus
+pontania viminalis
+psythyrus campestris
+spilichneumon occisorius
+trichoma enecator
+large white, pieris brassicae
+small white, pieris rapae
+green-veined white, pieris napi
+orange tip, anthocharis cardamines
+small copper, lycaena phlaeas
+common blue, polyommatus icarus
+holly blue, celastrina argiolus
+grayling, hipparchia semele
+speckled wood, pararge aegeria[1]
+meadow brown, maniola jurtina
+wall, lasiommata megera
+small heath, coenonympha pamphilus
+dark green fritillary, argynnis aglaja
+red admiral, vanessa atalanta
+small tortoiseshell, aglais urticae
+peacock, inachis io
+comma, polygonia c-album[1]
+painted lady, cynthia cardui
+ringlet, aphantopus hyperantus†
+cinnabar moth, tyria jacobaeae
+peppered moth, biston betularia
+garden carpet, xanthorhoe fluctuata
+silver ground carpet, xanthorhoe montanata montanata
+elephant hawkmoth, deilephila elpenor
+death's head hawkmoth, acherontia atropos
+puss moth, cerura vinula
+silver y, autographa gamma f. gammina
+ingrailed clay, diarsia mendica mendica
+acanthosoma haemorrhoidale (hawthorn shield bug)
+capsus meriopterus (a broom myrid)
+corixa praeusta (a water boatman)
+herris lacustris (common pondskater)
+hydrometra stagnorum (water-measurer)
+myzus cerasi
+peizodorus lituratus
+plagiognathus arbustorum
+sybsigara fossarum
+subsigara scotti
+velua currens
+common pipistrelle, pipistrellus pipistrellus
+whiskered bat, myotis mystacinus
+natterer's bat, myotis nattereri
+daubenton's bat, myotis daubentonii
+leisler's bat, nyctalus leisleri
+soprano pipistrelle, pipistrellus pygmaeus
+brown long-eared bat, plecotus auritus
+mountain hare, lepus timidus
+european hare, lepus europaeus
+european rabbit, oryctolagus cuniculus
+european hedgehog, erinaceus europaeus
+pygmy shrew, sorex minutus
+wood mouse, apodemus sylvaticus
+house mouse, mus domesticus
+brown rat, rattus norvegicus
+stoat, mustela erminea hibernica
+ferret, mustela furo
+irish elk, megaloceros giganteus
+grey seal, halichoerus grypus
+common seal, phoca vitulina
+human, homo sapiens
+domestic goat, capra hircus
+red-necked wallaby, macropus rufogriseus
+common lizard, zootoca vivipara
