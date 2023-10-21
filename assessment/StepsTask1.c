@@ -61,25 +61,37 @@ int main() {
             count++;
         }       
     }
+
     printf("Number of records in file: %d\n", count);
 
-    typedef FITNESS_DATA records[count];
+    FITNESS_DATA reccords[count];
 
-    int i = 0;
-    while (i<count+1){
+    int c= 0;
+    while(c<2){
+        char date[11];
+        char time[6];
+        char steps[10];
         fgets(mystr, 27, fp);
+        printf("%s", mystr);
+        tokeniseRecord(mystr, ",", date, time, steps);
 
-        char _date[11];
-        char _time[6];
-        char _steps[10];
+//        printf("%s\n", date);
+//        printf("%s\n", time);
+//        printf("%s\n", steps);
 
-        tokeniseRecord(mystr, ",", _date, _time, _steps);
-
-        int steps = _steps - '0';
-
-        records[i] = (_date, _time, steps);        
-        i++;   
+//        strcpy(reccords[c].date, date);
+//        strcpy(reccords[c].time, time);
+//        reccords[c].steps = atoi(steps);
+        c++;
+        
     }
+
+
+    for(int c = 0; c<3; c++){
+        printf("%s/%s/%d\n",reccords[c].date ,reccords[c].time ,reccords[c].steps);
+
+    }
+
 
     return 0;
 }
