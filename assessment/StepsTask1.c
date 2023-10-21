@@ -44,13 +44,11 @@ void tokeniseRecord(const char *input, const char *delimiter,
 // Complete the main function
 int main() {
     FILE *fp;
-    fp = fopen("FitnessData_2023.csv", "r");
+    fp = fopen("Fitness_Data.csv", "r");
 
     if (fp == NULL){
         printf("unable to open file");
     } 
-
-    char mystr [27];
 
     int count = 1;
     char current_c;
@@ -66,25 +64,27 @@ int main() {
 
     FITNESS_DATA reccords[count];
 
+    char mystr[27];
+
     int c= 0;
     while(c<2){
         char date[11];
         char time[6];
         char steps[10];
         fgets(mystr, 27, fp);
-        printf("%s", mystr);
         tokeniseRecord(mystr, ",", date, time, steps);
 
-//        printf("%s\n", date);
-//        printf("%s\n", time);
-//        printf("%s\n", steps);
+        printf("%s\n", date);
+        printf("%s\n", time);
+        printf("%s\n", steps);
 
-//        strcpy(reccords[c].date, date);
-//        strcpy(reccords[c].time, time);
-//        reccords[c].steps = atoi(steps);
+        strcpy(reccords[c].date, date);
+        strcpy(reccords[c].time, time);
+        reccords[c].steps = atoi(steps);
         c++;
         
     }
+
 
 
     for(int c = 0; c<3; c++){
@@ -92,6 +92,6 @@ int main() {
 
     }
 
-
+    fclose(fp);
     return 0;
 }
