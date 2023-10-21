@@ -43,50 +43,39 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 // Complete the main function
 int main() {
-    FILE *file;
-    file = fopen("FitnesData_2023.csv","r");
+    FILE *fp;
+    fp = fopen("FitnessData_2023.csv", "r");
 
-    if (file == NULL){
-        printf("error accessing file\n");
-        return 1;
+    if (fp == NULL){
+        printf("unable to open file");
+    } 
+
+    char mystr [27];
+
+    int i = 0;
+    while (i<2){
+        fgets(mystr, 27, fp);
+
+        char _date[11];
+        char _time[6];
+        char _steps[10];
+
+        tokeniseRecord(mystr, ",", _date, _time, _steps);
+
+        printf("Date: %s\n", _date);
+        printf("Time: %s\n", _time);
+        printf("Steps: %s\n", _steps);   
+        i++;   
     }
+    char c;
+    int count;
 
-    FITNESS_DATA data[3];
-
-    int read = 0;
-    int record = 0;
-
-    do
-    {
-        read = fscanf(file,
-                        "%10s,%5s,%d\n", &data[record].date, &data[record].time, &data[record].steps);
-
-        if (read == 3){
-            record ++;
-        }
-        else if (read != 3 && !feof(file)){
-            printf("file format is incorrect\n");
-            return 1;
-        }
-
-        if (ferror(file)){
-            printf("error reading file\n");
-            return 1;
-        }
-
-    } while (!feof(file));
-    
-    fclose(file);
-
-    printf("\n%d reccords read\n\n", record);
-
-    for (int i = 0; i < record; i++){
-        printf("%s/%s/%d", data[i].date, data[i].time, data[i].steps);
-
-    }
-    printf("\n");
+    while (getc(fp) != EOF)
+        if (c == '\n')
+            count = count + 1;
 
 
+    printf("%d\n",count);
 
 
 
