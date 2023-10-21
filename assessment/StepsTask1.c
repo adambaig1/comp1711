@@ -52,8 +52,21 @@ int main() {
 
     char mystr [27];
 
+    int count = 1;
+    char current_c;
+
+    while (current_c != EOF){
+        current_c = fgetc(fp);
+        if (current_c == '\n'){
+            count++;
+        }       
+    }
+    printf("Number of records in file: %d\n", count);
+
+    typedef FITNESS_DATA records[count];
+
     int i = 0;
-    while (i<2){
+    while (i<count+1){
         fgets(mystr, 27, fp);
 
         char _date[11];
@@ -62,22 +75,11 @@ int main() {
 
         tokeniseRecord(mystr, ",", _date, _time, _steps);
 
-        printf("Date: %s\n", _date);
-        printf("Time: %s\n", _time);
-        printf("Steps: %s\n", _steps);   
+        int steps = _steps - '0';
+
+        records[i] = (_date, _time, steps);        
         i++;   
     }
-    char c;
-    int count;
-
-    while (getc(fp) != EOF)
-        if (c == '\n')
-            count = count + 1;
-
-
-    printf("%d\n",count);
-
-
 
     return 0;
 }
