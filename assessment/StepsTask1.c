@@ -79,7 +79,7 @@ int main() {
         char date[11];
         char time[6];
         char steps[5];
-        
+    
         fgets(str, 27, fptr);
         tokeniseRecord(str, ",", date, time, steps);
 
