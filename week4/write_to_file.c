@@ -5,7 +5,7 @@ int main()
 {
     char *filename = "data.txt";
 
-    FILE *file = open_file(filename, "w"); // or "a", "w+", "a+"
+    FILE *file = open_file(filename, "w"); 
 
 
     int number;

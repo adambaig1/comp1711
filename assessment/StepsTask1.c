@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//by Adam Baig (Student no. = 201696916)
+
 // Define an appropriate struct
 typedef struct {
 	char date[11];
