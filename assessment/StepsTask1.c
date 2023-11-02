@@ -63,7 +63,8 @@ int main() {
         count++;
     }
     //this prints out the number of records in the file
-    printf("Number of records in file: %d\n", count);
+    printf("Number of records in file: %d", count);
+    printf("\n");
     fclose(fp);
 
     //I had to create a new file pointer as the data the old one was collecting was corrupting
@@ -94,7 +95,9 @@ int main() {
     
     //this for loop prints out the first three stored reccords in the array
     for (int x = 0; x<3; x++){
-        printf("%s/%s/%d\n", records[x].date, records[x].time, records[x].steps);
+        printf("%s/%s/%d", records[x].date, records[x].time, records[x].steps);
+        printf("\n");
+
     }
 
     //this closes the filepointer
