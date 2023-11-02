@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,7 +53,7 @@ int main() {
 
     //this prints out an error message if the file cannot be opened
     if (fp == NULL){
-        printf("unable to open file");
+        return 1;
     } 
 
     //count is the variable used to count the records in the file, current_c is used to determine when the end of a record is
@@ -83,7 +85,7 @@ int main() {
         char time[6];
         char steps[5];
     
-        fgets(str, 27, fptr);
+        fgets(str, 30, fptr);
         if (str != NULL){
             tokeniseRecord(str, ",", date, time, steps);
 
@@ -92,7 +94,7 @@ int main() {
             records[i].steps = atoi(steps);            
         }
     }
-    
+
     //this for loop prints out the first three stored reccords in the array
     for (int x = 0; x<3; x++){
         printf("%s/%s/%d", records[x].date, records[x].time, records[x].steps);
