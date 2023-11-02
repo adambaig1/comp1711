@@ -69,9 +69,15 @@ int main() {
     printf("Number of records in file: %d\n", count);
     //this initializes a typedef array holding all the records, with the size beign variable to the size of the csv file
     FITNESS_DATA records[count];
+    fclose(fp);
     //I had to create a new file pointer as the data it was collecting was corrupting
     FILE *fptr;
     fptr = fopen("FitnessData_2023.csv", "r");
+
+    if (fptr == NULL){
+        printf("unable to open file");
+    } 
+
     //this initializes the string which is used to store the records in the csv
     char str[27];
     //this for loop starts from 0 to the length of the file
@@ -97,6 +103,5 @@ int main() {
 
     //this closes both filepointers
     fclose(fptr);    
-    fclose(fp);
     return 0;
 }
