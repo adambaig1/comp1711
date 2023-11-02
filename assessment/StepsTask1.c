@@ -51,7 +51,7 @@ int main() {
 
     //this prints out an error message if the file cannot be opened
     if (fp == NULL){
-        printf("unable to open file");
+        return 1;
     } 
 
     //count is the variable used to count the records in the file, current_c is used to determine when the end of a record is
