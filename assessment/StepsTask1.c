@@ -51,10 +51,11 @@ int main() {
 
     //this prints out an error message if the file cannot be opened
     if (fp == NULL){
+        printf("Error opening file");
         return 1;
     } 
 
-    //count is the variable used to count the records in the file, current_c is used to determine when the end of a record is
+    //count is the variable used to count the records in the file, the variable c is just an arbitrary value just to use to count the number of lines
     int count = 0;
     char c[30];
     //this while loop iterates until the end of the file, it uses the fgets function which goes through each line in the csv
@@ -63,8 +64,6 @@ int main() {
         count++;
     }
     //this prints out the number of records in the file
-    printf("Number of records in file: %d", count);
-    printf("\n");
     fclose(fp);
 
     //I had to create a new file pointer as the data the old one was collecting was corrupting
@@ -93,11 +92,12 @@ int main() {
         }
     }
 
+    //outputs the number of records in the file
+    printf("Number of records in file: %d\n",count);
     //this for loop prints out the first three stored reccords in the array
-    for (int x = 0; x<3; x++){
-        printf("%s/%s/%d", records[x].date, records[x].time, records[x].steps);
-        printf("\n");
-
+    for (int x = 0; x <3; x++)
+    {
+        printf("%s/%s/%d\n",records[x].date,records[x].time,records[x].steps);
     }
 
     //this closes the filepointer
