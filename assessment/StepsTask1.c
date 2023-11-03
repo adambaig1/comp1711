@@ -49,7 +49,7 @@ int main() {
     FILE *fp;
     fp = fopen("FitnessData_2023.csv", "r");
 
-    //this prints out an error message if the file cannot be opened
+    //this outputs an error message if the file cannot be opened
     if (fp == NULL){
         printf("Error opening file");
         return 1;
@@ -63,7 +63,7 @@ int main() {
     while (fgets(c, 30, fp) != NULL){
         count++;
     }
-    //this prints out the number of records in the file
+    //this closes the fp filepointer
     fclose(fp);
 
     //I had to create a new file pointer as the data the old one was collecting was corrupting
@@ -78,23 +78,23 @@ int main() {
     //it gets the line of the file via the fegts function, then uses the tokenisRecord function to create tokens
     //these tokens are then stored in the records array
     for (int i = 0; i<count; i++){
-        char date[11];
-        char time[6];
-        char steps[5];
+        char date_[11];
+        char time_[6];
+        char steps_[5];
     
         fgets(str, 30, fptr);
         if (str != NULL){
-            tokeniseRecord(str, ",", date, time, steps);
+            tokeniseRecord(str, ",", date_, time_, steps_);
 
-            strcpy(records[i].date, date);
-            strcpy(records[i].time, time);
-            records[i].steps = atoi(steps);            
+            strcpy(records[i].date, date_);
+            strcpy(records[i].time, time_);
+            records[i].steps = atoi(steps_);            
         }
     }
 
     //outputs the number of records in the file
     printf("Number of records in file: %d\n",count);
-    //this for loop prints out the first three stored reccords in the array
+    //this for loop outputs the first three stored reccords in the array
     for (int x = 0; x <3; x++)
     {
         printf("%s/%s/%d\n",records[x].date,records[x].time,records[x].steps);
