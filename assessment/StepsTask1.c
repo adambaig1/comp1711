@@ -12,7 +12,14 @@ typedef struct {
 } FITNESS_DATA;
 
 // Define any additional variables here
-
+//count is used to count the number of lines in the csv
+//str is the string I'll use to put the lines of csv in
+//date_, time_, and steps_ are tokens of the csv string that has been read
+int count = 0;
+char str[100];
+char date_[11];
+char time_[6];
+char steps_[5];
 
 
 // This is your helper function. Do not change it in any way.
@@ -55,23 +62,14 @@ int main() {
         return 1;
     } 
 
-    //count is used to count the number of lines in the csv
-    //str is the string I'll use to put the lines of csv in
-    //date_, time_, and steps_ are tokens of the csv string that has been read
-    int count = 0;
-    char str[30];
-    char date_[11];
-    char time_[6];
-    char steps_[5];
-
-    //this initialises the array records to have a set length of 100000
-    FITNESS_DATA records[100000];
+    //this initialises the array records to have a set length of 10000
+    FITNESS_DATA records[10000];
 
     //this while loop cycles through the entire csv file until it reaches an empty line
     //it makes the inputted string into tokens
     //it then enters the value in the struct array, in its correct format
     //then it increments the counter
-    while (fgets(str, 30, fp) != NULL){
+    while (fgets(str, 100, fp) != NULL){
         tokeniseRecord(str,",",date_, time_, steps_);
         strcpy(records[count].date, date_);
         strcpy(records[count].time, time_);
@@ -86,6 +84,7 @@ int main() {
     {
         printf("%s/%s/%d\n",records[x].date,records[x].time,records[x].steps);
     }
- 
+
+    fclose(fp);
     return 0;
 }
