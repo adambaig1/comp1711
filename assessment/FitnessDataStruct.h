@@ -10,7 +10,26 @@ typedef struct {
 	int steps;
 } FITNESS_DATA;
 
-// Helper function prototypes
-void tokeniseRecord(const char *input, const char *delimiter, char *date, char *time, char *steps);
+FILE *open_file(char *filename, char *mode)
+{
+    FILE *input = fopen(filename, "r");
+    if (!input)
+    {
+        printf("Error: File could not be opened\n");
+    }
+}
+
+int count_line(FILE *inputFile){
+	int count = 0;
+	char str[100];
+
+    while(fgets(str, 100, inputFile) != NULL)
+    {
+        count++;
+    }
+
+	return count;
+}
+
 
 #endif // FITNESS_DATA_STRUCT_H

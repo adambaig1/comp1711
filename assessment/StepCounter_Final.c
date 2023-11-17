@@ -8,10 +8,10 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 char filename[50];
-char option;
 int x = 1;
-
-
+char choice;
+char str[100];
+int count = 0;
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -46,56 +46,67 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 // Complete the main function
 int main() {
-   printf("Menu Options:");
-   printf("A: Specify the filename to be imported\nB: Display the total number of records in the file\nC: Find the date and time of the timeslot with the fewest steps\nD: Find the date and time of the timeslot with the largest number of steps\nE: Find the mean step count of all the records in the file\nF: Find the longest continuous period where the step count is above 500 steps\nQ: Quit\n");
-   printf("Enter Choice:");
-   scanf("%c",&option);
 
-   while (x==1)
-   {   
-    switch (option)
+    while (1)
     {
-    case 'A':
-        printf("Input filename:");
-        scanf("%s",filename);
+        printf("A: Specify the filename to be imported\n");                     
+        printf("B: Display the total number of records in the file\n");                    
+        printf("C: Find the date and time of the timeslot with the fewest steps\n");                     
+        printf("D: Find the date and time of the timeslot with the largest number of stepsl\n");                    
+        printf("E: Find the mean step count of all the records in the file\n");       
+        printf("F: Find the longest continuous period where the step count is above 500 steps\n");                
+        printf("Q: Quit\n");
+        printf("Enter Choice: ");
+        choice = getchar();
+        while (getchar() != '\n');
 
-        FILE *fp;
-        fp = fopen(filename, "r");
+        switch (choice)
+        {
+        case 'A':
+        case 'a':
+            printf("Input filename: ");
+            scanf("%s", filename);
 
-        if (fp == NULL){
-            printf("Error: could not open file\n");
-            return 1;
+            FILE *input = open_file(filename, "r");
+            break;
+
+        case 'B':
+        case 'b':
+            printf("Total records: %d\n",count_line(input));
+            break;
+            
+        case 'C':
+        case 'c':
+
+            break;
+        case 'D':
+        case 'd':
+
+            break;
+        case 'E':
+        case 'e':
+
+
+            break;
+
+        case 'F':
+        case 'f':
+
+
+            break;
+
+        case 'Q':
+        case 'q':
+
+            return 0;
+            break;
+
+        default:
+            printf("Invalid choice\n");
+            break;
         }
-        option == ' '; 
-        break;   
-    case 'B':
-
-        break;
-    case 'C':
-
-        break;
-    case 'D':
-
-        break;
-    case 'E':
-
-        break;
-    case 'F':
-
-        break;
-    case 'Q':
-        x=0;
-        break;
-
-    case ' ':
-
-        break;
-    default:
-        printf("Invalid choice. Try Again");
-        break;
     }
-   }
-   
+    fclose(filename);
    return 0;
 }
 
