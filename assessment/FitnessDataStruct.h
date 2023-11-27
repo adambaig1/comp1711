@@ -10,26 +10,17 @@ typedef struct {
 	int steps;
 } FITNESS_DATA;
 
-FILE *open_file(char *filename, char *mode)
-{
-    FILE *input = fopen(filename, "r");
-    if (!input)
-    {
-        printf("Error: File could not be opened\n");
-    }
-}
 
-int count_line(FILE *inputFile){
+int count_line(FILE *fp){
 	int count = 0;
 	char str[100];
 
-    while(fgets(str, 100, inputFile) != NULL)
+    while(fgets(str, 100, fp) != NULL)
     {
         count++;
     }
 
 	return count;
 }
-
 
 #endif // FITNESS_DATA_STRUCT_H

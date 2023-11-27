@@ -8,10 +8,18 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 char filename[50];
-int x = 1;
+
 char choice;
 char str[100];
+char date_[20];
+char time_[20];
+char steps_[20];
 int count = 0;
+FITNESS_DATA records[10000];
+    
+char date_[20];
+char time_[20];
+char steps_[20];
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -49,6 +57,7 @@ int main() {
 
     while (1)
     {
+        choice = 0;
         printf("A: Specify the filename to be imported\n");                     
         printf("B: Display the total number of records in the file\n");                    
         printf("C: Find the date and time of the timeslot with the fewest steps\n");                     
@@ -59,24 +68,49 @@ int main() {
         printf("Enter Choice: ");
         choice = getchar();
         while (getchar() != '\n');
-
-        switch (choice)
+        
+        switch(choice)
         {
         case 'A':
         case 'a':
             printf("Input filename: ");
-            scanf("%s", filename);
+            scanf("%s",filename);
 
-            FILE *input = open_file(filename, "r");
+            FILE *fp = fopen(filename, "r");
+            if (!fp)
+            {
+                printf("Error: File could not be opened\n");
+                return 1;
+            }
+            
             break;
 
         case 'B':
         case 'b':
-            printf("Total records: %d\n",count_line(input));
+            printf("Total records: %d\n", count_line(fp));
             break;
             
         case 'C':
-        case 'c':
+        case 'c':    
+            while (fgets(str, 100, fp) != NULL)
+            {
+                tokeniseRecord(str,",",date_, time_, steps_);
+                strcpy(records[count].date, date_);
+                strcpy(records[count].time, time_);
+                records[count].steps = atoi(steps_);
+                count++;  
+            }
+            
+            int min = records[0].steps;
+            int c = 0;
+            for (int x = 0; x <count; x++)
+            {
+                if (records[x].steps<min){
+                    min = records[x].steps;
+                    c = x;
+                }
+            }
+            printf("Fewest steps: %s %s\n",records[c].date, records[c].time);
 
             break;
         case 'D':
@@ -106,7 +140,8 @@ int main() {
             break;
         }
     }
-    fclose(filename);
+
+
    return 0;
 }
 
