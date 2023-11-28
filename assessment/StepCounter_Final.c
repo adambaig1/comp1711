@@ -16,7 +16,13 @@ char steps_[20];
 int count = 0;
 int c;
 int min;
+int max;
+int v;
+int streak;
+int mean_step;
+int total_step;
 FITNESS_DATA records[10000];
+FITNESS_DATA streaks[10000];
     
 char date_[20];
 char time_[20];
@@ -62,7 +68,7 @@ int main() {
         printf("A: Specify the filename to be imported\n");                     
         printf("B: Display the total number of records in the file\n");                    
         printf("C: Find the date and time of the timeslot with the fewest steps\n");                     
-        printf("D: Find the date and time of the timeslot with the largest number of stepsl\n");                    
+        printf("D: Find the date and time of the timeslot with the largest number of steps\n");                    
         printf("E: Find the mean step count of all the records in the file\n");       
         printf("F: Find the longest continuous period where the step count is above 500 steps\n");                
         printf("Q: Quit\n");
@@ -75,7 +81,7 @@ int main() {
         case 'A':
         case 'a':
             printf("Input filename: ");
-            if(scanf("%s", filename)){};
+            scanf("%s", filename);
 
             FILE *fp = fopen(filename, "r");
             if (!fp)
@@ -117,18 +123,34 @@ int main() {
             break;
         case 'D':
         case 'd':
-            
+            max = records[0].steps;
+            v = 0;
+            for (int x = 0; x <count; x++)
+            {
+                if (records[x].steps>max){
+                    max = records[x].steps;
+                    v = x;
+                }
+            }
+            printf("Largest steps: %s %s\n",records[v].date, records[v].time);          
 
             break;
         case 'E':
         case 'e':
+            total_step = 0;
+            for (int x = 0; x<count; x++)
+            {
+                total_step = total_step + records[x].steps;
+            }
 
+            mean_step = total_step / count;
+            printf("Mean step count: %d\n", mean_step);
 
             break;
 
         case 'F':
         case 'f':
-
+            
 
             break;
 
