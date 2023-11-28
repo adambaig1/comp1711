@@ -8,13 +8,14 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 char filename[50];
-
 char choice;
 char str[100];
 char date_[20];
 char time_[20];
 char steps_[20];
 int count = 0;
+int c;
+int min;
 FITNESS_DATA records[10000];
     
 char date_[20];
@@ -74,7 +75,7 @@ int main() {
         case 'A':
         case 'a':
             printf("Input filename: ");
-            scanf("%s",filename);
+            if(scanf("%s", filename)){};
 
             FILE *fp = fopen(filename, "r");
             if (!fp)
@@ -83,15 +84,6 @@ int main() {
                 return 1;
             }
             
-            break;
-
-        case 'B':
-        case 'b':
-            printf("Total records: %d\n", count_line(fp));
-            break;
-            
-        case 'C':
-        case 'c':    
             while (fgets(str, 100, fp) != NULL)
             {
                 tokeniseRecord(str,",",date_, time_, steps_);
@@ -100,9 +92,19 @@ int main() {
                 records[count].steps = atoi(steps_);
                 count++;  
             }
+
+            fclose(fp);
+            break;
+
+        case 'B':
+        case 'b':            
+            printf("Total records: %d\n", count);
+            break;
             
-            int min = records[0].steps;
-            int c = 0;
+        case 'C':
+        case 'c':    
+            min = records[0].steps;
+            c = 0;
             for (int x = 0; x <count; x++)
             {
                 if (records[x].steps<min){
@@ -115,6 +117,7 @@ int main() {
             break;
         case 'D':
         case 'd':
+            
 
             break;
         case 'E':
@@ -131,7 +134,6 @@ int main() {
 
         case 'Q':
         case 'q':
-
             return 0;
             break;
 
