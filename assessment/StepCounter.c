@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "FitnessDataStruct.h"
 
 // Struct moved to header file
@@ -11,24 +12,18 @@ char filename[50];
 char line[50];
 char choice;
 char str[100];
-char date_[20];
-char time_[20];
-char steps_[20];
+char date[20];
+char time[20];
+char steps[20];
 int count = 0;
-FITNESS_DATA min;
-FITNESS_DATA max;
+FITNESS_DATA minimum;
+FITNESS_DATA maximum;
 int streak;
 int mean;
 FITNESS_DATA records[10000];
 int l_num;
 int strk_count = 0;
 int l;
-
-    
-char date_[20];
-char time_[20];
-char steps_[20];
-
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -75,7 +70,7 @@ int main() {
         printf("E: Find the mean step count of all the records in the file\n");       
         printf("F: Find the longest continuous period where the step count is above 500 steps\n");                
         printf("Q: Quit\n");
-        printf("Enter Choice: ");
+        printf("Enter choice: ");
         //this gets the user input without the newline
         choice = getchar();
         while (getchar() != '\n');
@@ -105,10 +100,10 @@ int main() {
             //this tokenises the file and counts the number of lines
             while (fgets(str, 100, fp) != NULL)
             {
-                tokeniseRecord(str,",",date_, time_, steps_);
-                strcpy(records[count].date, date_);
-                strcpy(records[count].time, time_);
-                records[count].steps = atoi(steps_);
+                tokeniseRecord(str,",",date, time, steps);
+                strcpy(records[count].date, date);
+                strcpy(records[count].time, time);
+                records[count].steps = atoi(steps);
                 count++;  
             }
 
@@ -124,22 +119,22 @@ int main() {
         case 'C':
         case 'c': 
             //calls to header function in header file which finds the element in the array with the lowest step counter    
-            min = find_min(records, count);
+            minimum = find_min(records, count);
 
-            printf("Fewest steps: %s %s\n",min.date, min.time);
+            printf("Fewest steps: %s %s\n",minimum.date, minimum.time);
 
             break;
         case 'D':
         case 'd':
             //calls to header function in header file which finds the element in the array with the highest step counter
-            max = find_max(records, count);
-            printf("Largest steps: %s %s\n",max.date, max.time);          
+            maximum = find_max(records, count);
+            printf("Largest steps: %s %s\n",maximum.date, maximum.time);          
 
             break;
         case 'E':
         case 'e':
             //calls to header function in header file which finds the mean of all the steps in the array
-            mean = find_mean(records, count);
+            mean = round(find_mean(records, count));
             
             printf("Mean step count: %d\n", mean);
 

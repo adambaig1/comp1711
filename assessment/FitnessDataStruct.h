@@ -49,18 +49,17 @@ FITNESS_DATA find_max(FITNESS_DATA* records, int count )
 
 }
 
-int find_mean(FITNESS_DATA* records, int count)
+float find_mean(FITNESS_DATA* records, int count)
 {
-    //total steps and the mean is initialised
-    int total_step = 0;
-	int mean_step;
+    //sum and the mean is initialised
+    float sum = 0;
     //for loop to cycle through all elements and them up to make the total
     for (int x = 0; x<count; x++)
     {
-        total_step = total_step + records[x].steps;
+        sum = sum + records[x].steps;
     }
 
-    mean_step = total_step / count;
+    float mean_step = sum / count;
 
 	return mean_step;
 }
