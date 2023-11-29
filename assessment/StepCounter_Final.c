@@ -102,6 +102,7 @@ int main() {
                 return 1;
             }
             
+            //this tokenises the file and counts the number of lines
             while (fgets(str, 100, fp) != NULL)
             {
                 tokeniseRecord(str,",",date_, time_, steps_);
@@ -115,12 +116,14 @@ int main() {
             break;
 
         case 'B':
-        case 'b':            
+        case 'b':
+            //displays the line count            
             printf("Total records: %d\n", count);
             break;
             
         case 'C':
-        case 'c':    
+        case 'c': 
+            //calls to header function in header file which finds the element in the array with the lowest step counter    
             min = find_min(records, count);
 
             printf("Fewest steps: %s %s\n",min.date, min.time);
@@ -128,12 +131,14 @@ int main() {
             break;
         case 'D':
         case 'd':
+            //calls to header function in header file which finds the element in the array with the highest step counter
             max = find_max(records, count);
             printf("Largest steps: %s %s\n",max.date, max.time);          
 
             break;
         case 'E':
         case 'e':
+            //calls to header function in header file which finds the mean of all the steps in the array
             mean = find_mean(records, count);
             
             printf("Mean step count: %d\n", mean);
@@ -142,39 +147,47 @@ int main() {
 
         case 'F':
         case 'f':
-
+            //this for loop is to loop thoruhg all the elements in the records array
             for(int i = 0; i<count; i++)
             {
+                //this condition is to called if the current element's steps in the for loop is above 500
                 if (records[i].steps > 500)
                 {
-
+                    //this then sees if the element infront's steps is above 500, and increments the streaks counter
                     if (records[i+1].steps > 500)
                     {
                         l++;   
                     }
+                    //this is triggered once the streak ends
                     else
                     {
+                        //this sees if the current streak is greater than the largest streak
+                        //if it is then the highest streak counter is changes to the current one
+                        //and the line number of the last element of the streak is stored
                         if(l+1> strk_count)
                         {
                             strk_count = l; 
                             l_num = i;
                         }
-
+                        //the current streak counter is then reset
                         l=0;
                     }
                 }
             }
-
+            
+            //outputs the first and last element of the streak
             printf("Longest period start: %s %s\n", records[l_num - strk_count].date, records[l_num - strk_count].time);
             printf("Longest period end: %s %s\n", records[l_num].date, records[l_num].time);
 
             break;
 
+        //quitting conditiom
         case 'Q':
         case 'q':
             return 0;
             break;
 
+        //if user inputs incorrect response
         default:
             printf("Invalid choice\n");
             break;
