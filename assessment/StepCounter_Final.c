@@ -14,19 +14,20 @@ char date_[20];
 char time_[20];
 char steps_[20];
 int count = 0;
-int c;
-int min;
-int max;
-int v;
+FITNESS_DATA min;
+FITNESS_DATA max;
 int streak;
-int mean_step;
-int total_step;
+int mean;
 FITNESS_DATA records[10000];
-FITNESS_DATA streaks[10000];
+int l_num;
+int strk_count = 0;
+int l;
+
     
 char date_[20];
 char time_[20];
 char steps_[20];
+
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -64,7 +65,7 @@ int main() {
 
     while (1)
     {
-        choice = 0;
+        printf("Menu Options:\n");
         printf("A: Specify the filename to be imported\n");                     
         printf("B: Display the total number of records in the file\n");                    
         printf("C: Find the date and time of the timeslot with the fewest steps\n");                     
@@ -75,15 +76,18 @@ int main() {
         printf("Enter Choice: ");
         choice = getchar();
         while (getchar() != '\n');
+
         
         switch(choice)
         {
         case 'A':
         case 'a':
-            printf("Input filename: ");
-            scanf("%s", filename);
+            count = 0;
 
-            FILE *fp = fopen(filename, "r");
+            printf("Input filename: ");
+            fgets(filename,100,stdin);
+
+            FILE *fp = fopen("fit.csv", "r");
             if (!fp)
             {
                 printf("Error: File could not be opened\n");
@@ -109,48 +113,52 @@ int main() {
             
         case 'C':
         case 'c':    
-            min = records[0].steps;
-            c = 0;
-            for (int x = 0; x <count; x++)
-            {
-                if (records[x].steps<min){
-                    min = records[x].steps;
-                    c = x;
-                }
-            }
-            printf("Fewest steps: %s %s\n",records[c].date, records[c].time);
+            min = find_min(records, count);
+
+            printf("Fewest steps: %s %s\n",min.date, min.time);
 
             break;
         case 'D':
         case 'd':
-            max = records[0].steps;
-            v = 0;
-            for (int x = 0; x <count; x++)
-            {
-                if (records[x].steps>max){
-                    max = records[x].steps;
-                    v = x;
-                }
-            }
-            printf("Largest steps: %s %s\n",records[v].date, records[v].time);          
+            max = find_max(records, count);
+            printf("Largest steps: %s %s\n",max.date, max.time);          
 
             break;
         case 'E':
         case 'e':
-            total_step = 0;
-            for (int x = 0; x<count; x++)
-            {
-                total_step = total_step + records[x].steps;
-            }
-
-            mean_step = total_step / count;
-            printf("Mean step count: %d\n", mean_step);
+            mean = find_mean(records, count);
+            
+            printf("Mean step count: %d\n", mean);
 
             break;
 
         case 'F':
         case 'f':
-            
+
+            for(int i = 0; i<count; i++)
+            {
+                if (records[i].steps > 500)
+                {
+
+                    if (records[i+1].steps > 500)
+                    {
+                        l++;   
+                    }
+                    else
+                    {
+                        if(l+1> strk_count)
+                        {
+                            strk_count = l; 
+                            l_num = i;
+                        }
+
+                        l=0;
+                    }
+                }
+            }
+
+            printf("Longest period start: %s %s\n", records[l_num - strk_count].date, records[l_num - strk_count].time);
+            printf("Longest period end: %s %s\n", records[l_num].date, records[l_num].time);
 
             break;
 

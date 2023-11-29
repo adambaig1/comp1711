@@ -10,17 +10,50 @@ typedef struct {
 	int steps;
 } FITNESS_DATA;
 
-
-int count_line(FILE *fp){
-	int count = 0;
-	char str[100];
-
-    while(fgets(str, 100, fp) != NULL)
+FITNESS_DATA find_min(FITNESS_DATA* records, int count )
+{
+    int min = records[0].steps;
+    int c = 0;
+    for (int x = 0; x <count; x++)
     {
-        count++;
+        if (records[x].steps<min){
+            c = x;
+        }
     }
 
-	return count;
+	return records[c];
+
 }
+
+FITNESS_DATA find_max(FITNESS_DATA* records, int count )
+{
+    int max = records[0].steps;
+    int v = 0;
+    for (int x = 0; x <count; x++)
+    {
+        if (records[x].steps>max){
+            max = records[x].steps;
+            v = x;
+		}
+    }
+
+	return records[v];
+
+}
+
+int find_mean(FITNESS_DATA* records, int count)
+{
+    int total_step = 0;
+	int mean_step;
+    for (int x = 0; x<count; x++)
+    {
+        total_step = total_step + records[x].steps;
+    }
+
+    mean_step = total_step / count;
+
+	return mean_step;
+}
+
 
 #endif // FITNESS_DATA_STRUCT_H
