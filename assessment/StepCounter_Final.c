@@ -8,6 +8,7 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 char filename[50];
+char line[50];
 char choice;
 char str[100];
 char date_[20];
@@ -65,6 +66,7 @@ int main() {
 
     while (1)
     {
+        //these are all the menu options to choose from
         printf("Menu Options:\n");
         printf("A: Specify the filename to be imported\n");                     
         printf("B: Display the total number of records in the file\n");                    
@@ -74,20 +76,26 @@ int main() {
         printf("F: Find the longest continuous period where the step count is above 500 steps\n");                
         printf("Q: Quit\n");
         printf("Enter Choice: ");
+        //this gets the user input without the newline
         choice = getchar();
         while (getchar() != '\n');
 
-        
+        //this switch case is for the user input
         switch(choice)
         {
         case 'A':
         case 'a':
+
+            //resets the lin counter everytime a new file is inputted
             count = 0;
 
+            //gets the filename from user input
             printf("Input filename: ");
-            fgets(filename,100,stdin);
+            fgets(line, 50, stdin);
+            sscanf(line, " %s ", filename);
 
-            FILE *fp = fopen("fit.csv", "r");
+            //opens the file, and reports any errors
+            FILE *fp = fopen(filename, "r");
             if (!fp)
             {
                 printf("Error: File could not be opened\n");
